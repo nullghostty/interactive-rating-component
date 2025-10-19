@@ -1,4 +1,8 @@
+@use "variables";
+
 .card {
+  max-width: 25.75rem;
+
   margin: 0 1.5rem;
   border-radius: 1.875rem;
   /* rating and thank-you cards have differ in padding need to add */
@@ -7,5 +11,34 @@
   @media (max-width: 767px) {
     border-radius: 0.9375rem;
     padding: 2rem 1.5rem;
+  }
+}
+
+@mixin layout($spacing: variables.$spacing-200) {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing;
+}
+
+.rating-card__form,
+.thank-you-card {
+  @include layout($spacing: variables.$spacing-400);
+
+  @media (max-width: 767px) {
+    @include layout($spacing: variables.$spacing-300);
+  }
+
+  .rating-card__content {
+    @include layout();
+  }
+}
+
+.thank-you-card {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .thank-you-card__content {
+    @include layout($spacing: variables.$spacing-200);
   }
 }

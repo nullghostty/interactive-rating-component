@@ -17,7 +17,14 @@
   }
 }
 
+.rating-card__submit-button {
+  border-radius: 1.40625rem;
+  /* The button with padding affects the size of the card */
+  width: 100%;
+}
+
 .card {
+  max-width: 25.75rem;
   margin: 0 1.5rem;
   border-radius: 1.875rem;
   /* rating and thank-you cards have differ in padding need to add */
@@ -28,6 +35,38 @@
     border-radius: 0.9375rem;
     padding: 2rem 1.5rem;
   }
+}
+
+.rating-card__form,
+.thank-you-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+@media (max-width: 767px) {
+  .rating-card__form,
+  .thank-you-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+.rating-card__form .rating-card__content,
+.thank-you-card .rating-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.thank-you-card {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.thank-you-card .thank-you-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 body {
@@ -58,6 +97,10 @@ picture {
 
 button {
   font: inherit;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
 }
 
 body {
@@ -99,11 +142,6 @@ label,
   background: hsl(213, 19%, 18%);
 }
 
-button {
-  background: hsl(25, 97%, 53%);
-  color: hsl(216, 12%, 8%);
-}
-
 label:has(input[type=radio]:checked) {
   /* styles the parent (label) when radio input is selected */
   background: hsl(0, 100%, 100%);
@@ -112,6 +150,11 @@ label:has(input[type=radio]:checked) {
 
 .card {
   background: radial-gradient(100% 100% at 50% 0%, #232a34 0%, #181e27 100%);
+}
+
+.rating-card__submit-button {
+  background: hsl(25, 97%, 53%);
+  color: hsl(216, 12%, 8%);
 }
 
 /*# sourceMappingURL=style.css.map */

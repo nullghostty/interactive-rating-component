@@ -17,3 +17,9 @@
     @include size($size: 2.5rem);
   }
 }
+
+.rating-card__submit-button {
+  border-radius: 1.40625rem;
+  /* The button with padding affects the size of the card */
+  width: 100%;
+}

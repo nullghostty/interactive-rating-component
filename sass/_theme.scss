@@ -24,11 +24,6 @@ label,
   background: $grey-900;
 }
 
-button {
-  background: $orange-500;
-  color: $grey-950;
-}
-
 label:has(input[type="radio"]:checked) {
   /* styles the parent (label) when radio input is selected */
   background: $white;
@@ -39,3 +34,7 @@ label:has(input[type="radio"]:checked) {
   background: $gradient;
 }
 
+.rating-card__submit-button {
+  background: $orange-500;
+  color: $grey-950;
+}

@@ -1,0 +1,11 @@
+.card {
+  margin: 0 1.5rem;
+  border-radius: 1.875rem;
+  /* rating and thank-you cards have differ in padding need to add */
+  padding: 2.5rem 2rem;
+
+  @media (max-width: 767px) {
+    border-radius: 0.9375rem;
+    padding: 2rem 1.5rem;
+  }
+}

@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interactive rating component</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- Rating state start -->
-    <div class="rating-card">
+    <div class="card rating-card">
       <div class="rating-card__icon">
         <img src="./images/icon-star.svg" alt="icon-star" />
       </div>
@@ -44,40 +45,45 @@
        * Selects the rating form element.
        * @type {HTMLFormElement}
        */
-      const form = document.querySelector('.rating-card__form');
+      const form = document.querySelector(".rating-card__form");
 
       /**
        * Adds an event listener to the form for submit events.
        * Handles the submission by preventing default, validating selection,
        * fetching thank-you.html, replacing the placeholder, and updating the DOM.
        */
-      form.addEventListener('submit', /** @param {Event} e */ async (e) => {
-        /** Prevents the default form submission behavior. */
-        e.preventDefault();
+      form.addEventListener(
+        "submit",
+        /** @param {Event} e */ async (e) => {
+          /** Prevents the default form submission behavior. */
+          e.preventDefault();
 
-        /** Gets the value of the checked rating radio button. */
-        const selected = document.querySelector('input[name="rating"]:checked')?.value;
+          /** Gets the value of the checked rating radio button. */
+          const selected = document.querySelector(
+            'input[name="rating"]:checked',
+          )?.value;
 
-        /** If a rating is selected, proceed to fetch and display thank you. */
-        if (selected) {
-          try {
-            /** Fetches the thank-you.html file. */
-            const response = await fetch('./thank-you.html');
+          /** If a rating is selected, proceed to fetch and display thank you. */
+          if (selected) {
+            try {
+              /** Fetches the thank-you.html file. */
+              const response = await fetch("./thank-you.html");
 
-            /** Gets the text content of the response. */
-            let html = await response.text();
+              /** Gets the text content of the response. */
+              let html = await response.text();
 
-            /** Replaces the placeholder with the selected rating. */
-            html = html.replace('<!-- Add rating here -->', selected);
+              /** Replaces the placeholder with the selected rating. */
+              html = html.replace("<!-- Add rating here -->", selected);
 
-            /** Replaces the rating card's outerHTML with the modified thank you HTML. */
-            document.querySelector('.rating-card').outerHTML = html;
-          } catch (error) {
-            /** Logs any errors that occur during fetching. */
-            console.error('Error loading thank-you.html:', error);
+              /** Replaces the rating card's outerHTML with the modified thank you HTML. */
+              document.querySelector(".rating-card").outerHTML = html;
+            } catch (error) {
+              /** Logs any errors that occur during fetching. */
+              console.error("Error loading thank-you.html:", error);
+            }
           }
-        }
-      });
+        },
+      );
     </script>
   </body>
 </html>

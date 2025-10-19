@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+.rating-card__icon,
+.rating-card__rating-button {
+  border-radius: 50%;
+}
+
+.rating-card__icon {
+  width: 3rem;
+  height: 3rem;
+  /* need to store spacing variables in a seperate file */
+  padding: 1rem;
+}
+@media (max-width: 767px) {
+  .rating-card__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.card {
+  margin: 0 1.5rem;
+  border-radius: 1.875rem;
+  /* rating and thank-you cards have differ in padding need to add */
+  padding: 2.5rem 2rem;
+}
+@media (max-width: 767px) {
+  .card {
+    border-radius: 0.9375rem;
+    padding: 2rem 1.5rem;
+  }
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 2.1875rem;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+  }
+}
+
+button {
+  text-transform: uppercase;
+}
+
+body {
+  background: hsl(216, 12%, 8%);
+}
+
+h1 {
+  color: hsl(0, 100%, 100%);
+}
+
+p,
+label {
+  color: hsl(217, 12%, 63%);
+}
+
+label,
+.rating-card__icon {
+  background: hsl(213, 19%, 18%);
+}
+
+button {
+  background: hsl(25, 97%, 53%);
+  color: hsl(216, 12%, 8%);
+}
+
+label:has(input[type=radio]:checked) {
+  /* styles the parent (label) when radio input is selected */
+  background: hsl(0, 100%, 100%);
+  color: hsl(213, 19%, 18%);
+}
+
+.card {
+  background: radial-gradient(100% 100% at 50% 0%, #232a34 0%, #181e27 100%);
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,19 @@
+.rating-card__icon,
+.rating-card__rating-button {
+  border-radius: 50%;
+}
+
+@mixin size($size: 3rem) {
+  width: $size;
+  height: $size;
+}
+
+.rating-card__icon {
+  @include size();
+  /* need to store spacing variables in a seperate file */
+  padding: 1rem;
+
+  @media (max-width: 767px) {
+    @include size($size: 2.5rem);
+  }
+}

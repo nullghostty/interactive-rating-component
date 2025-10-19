@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
+$primary-font: "Overpass", sans-serif;
+
+body {
+  font-family: $primary-font;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 2.1875rem;
+  font-weight: 700;
+
+  @media (max-width: 767px) {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+  }
+}
+
+button {
+  text-transform: uppercase;
+}

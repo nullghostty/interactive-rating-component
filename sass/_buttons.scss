@@ -1,3 +1,5 @@
+@use "variables";
+
 .rating-card__icon,
 .rating-card__rating-button {
   border-radius: 50%;
@@ -22,4 +24,28 @@
   border-radius: 1.40625rem;
   /* The button with padding affects the size of the card */
   width: 100%;
+}
+
+.rating-card__rating-buttons {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: variables.$spacing-300;
+
+  @media (max-width: 767px) {
+    gap: variables.$spacing-200;
+  }
+
+  .rating-card__rating-button {
+    padding: variables.$spacing-200 variables.$spacing-300;
+
+    @media (max-width: 767px) {
+      padding: variables.$spacing-100 variables.$spacing-200;
+    }
+
+    input {
+      @include size($size: 0);
+      opacity: 0;
+    }
+  }
 }

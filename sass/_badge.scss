@@ -1,0 +1,13 @@
+@use "variables";
+
+%badge-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thank-you-card__message-badge {
+  @extend %badge-layout;
+  padding: 0 variables.$spacing-200;
+  border-radius: 1.40625rem;
+}

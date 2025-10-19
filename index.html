@@ -7,19 +7,77 @@
   </head>
   <body>
     <!-- Rating state start -->
-
-    How did we do? 
-    Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering! 
-    1 2 3 4 5 
-    Submit
+    <div class="rating-card">
+      <div class="rating-card__icon">
+        <img src="./images/icon-star.svg" alt="icon-star" />
+      </div>
+      <form class="rating-card__form" method="post">
+        <h1 class="rating-card__title">How did we do?</h1>
+        <p class="rating-card__description">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+        <div class="rating-card__rating-buttons">
+          <label class="rating-card__rating-button" for="rating-1">
+            <input type="radio" name="rating" id="rating-1" value="1" />1
+          </label>
+          <label class="rating-card__rating-button" for="rating-2">
+            <input type="radio" name="rating" id="rating-2" value="2" />2
+          </label>
+          <label class="rating-card__rating-button" for="rating-3">
+            <input type="radio" name="rating" id="rating-3" value="3" />3
+          </label>
+          <label class="rating-card__rating-button" for="rating-4">
+            <input type="radio" name="rating" id="rating-4" value="4" />4
+          </label>
+          <label class="rating-card__rating-button" for="rating-5">
+            <input type="radio" name="rating" id="rating-5" value="5" />5
+          </label>
+        </div>
+        <button class="rating-card__submit-button" type="submit">Submit</button>
+      </form>
+    </div>
 
     <!-- Rating state end -->
+    <script>
+      /**
+       * Selects the rating form element.
+       * @type {HTMLFormElement}
+       */
+      const form = document.querySelector('.rating-card__form');
 
-    <!-- Thank you state start -->
+      /**
+       * Adds an event listener to the form for submit events.
+       * Handles the submission by preventing default, validating selection,
+       * fetching thank-you.html, replacing the placeholder, and updating the DOM.
+       */
+      form.addEventListener('submit', /** @param {Event} e */ async (e) => {
+        /** Prevents the default form submission behavior. */
+        e.preventDefault();
 
-    You selected
-    <!-- Add rating here -->
-    out of 5 Thank you! We appreciate you taking the time to give a rating. If
-    you ever need more support, don’t hesitate to get in touch!
+        /** Gets the value of the checked rating radio button. */
+        const selected = document.querySelector('input[name="rating"]:checked')?.value;
+
+        /** If a rating is selected, proceed to fetch and display thank you. */
+        if (selected) {
+          try {
+            /** Fetches the thank-you.html file. */
+            const response = await fetch('./thank-you.html');
+
+            /** Gets the text content of the response. */
+            let html = await response.text();
+
+            /** Replaces the placeholder with the selected rating. */
+            html = html.replace('<!-- Add rating here -->', selected);
+
+            /** Replaces the rating card's outerHTML with the modified thank you HTML. */
+            document.querySelector('.rating-card').outerHTML = html;
+          } catch (error) {
+            /** Logs any errors that occur during fetching. */
+            console.error('Error loading thank-you.html:', error);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
